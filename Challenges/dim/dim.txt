@@ -1,0 +1,11 @@
+This is a reverse challenge, enjoy!
+A reverse challenge is a special type of challenge, where no description is provided! You have to solve two challenges in one: find out what the author wants from you and write a solution. Check out this page for more information.
+Input/Output
+
+[time limit] 3000ms (java)
+[input] integer64 n
+
+Guaranteed constraints:
+0 ≤ n ≤ 1015.
+
+[output] integer
