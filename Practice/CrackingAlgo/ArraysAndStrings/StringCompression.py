@@ -9,27 +9,30 @@
 # You can assume the string has only uppercase and lowercase letters (a - z).
 # Hints: #92, # 110
 
-# def stringCompression(string):
-#     dictionary = dict()
-#     for char in string:
-#         if char not in dictionary:
-#             dictionary[char] = 1
-#         else:
-#             dictionary[char] += 1
-
-#     compressedString = ''
-#     for key in dictionary:
-#         compressedString += key
-#         compressedString += (str(dictionary[key]))
-
-#     return compressedString
-
 def stringCompression(string):
-    newString = ''
     counter = 0
+    newList = list()
 
     tempChar = string[0]
-    for char in string:
+
+    i = 0
+    while i < len(string):
+        if tempChar == string[i]:
+            counter += 1
+            tempChar == string[i]
+        elif tempChar != string[i]:
+            newList.append(tempChar)
+            newList.append(str(counter))
+            counter = 1
+            tempChar = string[i]
+
+        i += 1
+
+    # append last character
+    newList.append(tempChar)
+    newList.append(str(counter))
+
+    return ''.join(newList)
 
 
 if __name__ == '__main__':
