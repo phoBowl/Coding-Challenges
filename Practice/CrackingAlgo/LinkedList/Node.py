@@ -15,8 +15,15 @@ class Node:
     def setNextNode(self, value):
         self._next.value = value
 
+    def appendToTail(self, value):
+        newNode = Node(value)
+        n = self
+        while n.getNextNode() != None:
+            n = n.getNextNode()
+        n._next = newNode
+
 
 if __name__ == '__main__':
-    node1 = Node(1, None)
-    node2 = Node(2, None)
-    node3 = Node(3, None)
+    node1 = Node(1)
+    node2 = Node(2)
+    node3 = Node(3)
