@@ -12,26 +12,24 @@ from Node import Node
 #     one searches ahead of the first one.
 
 
-def removeDups1(llist):
+def removeDups1(head):
     ''' Method 1: using dictionary - if temporary buffer is allowed '''
     dictionary = dict()
-    curr = llist.getHead()
+    curr = head
 
     if curr == None:
-        return llist
-
+        return llist._head
+    prevNode = Node()
     while(curr):
         curr_val = curr.getValue()
         if curr_val not in dictionary:
             dictionary[curr_val] = 1
+            prevNode = curr
         else:
             if curr_val in dictionary:
-                dictionary[curr_val] += 1
-                if dictionary[curr_val] > 1:
-                    dictionary
+                prevNode._next = curr.getNextNode()
         curr = curr.getNextNode()
-
-        # not done yet
+    return llist._head
 
 
 def removeDups2(llist):

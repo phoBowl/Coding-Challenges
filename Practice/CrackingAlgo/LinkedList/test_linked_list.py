@@ -1,6 +1,7 @@
 
 import pytest
 from LinkedList import LinkedList
+from removeDups import *
 
 
 def test_append_to_tail():

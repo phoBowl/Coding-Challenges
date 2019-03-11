@@ -92,3 +92,4 @@ class LinkedList:
         while(curr != None):
             print(curr.getValue())
             curr = curr.getNextNode()
+        print('size: ', self.getSize())
