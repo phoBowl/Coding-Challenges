@@ -53,3 +53,44 @@ def test_delete_node():
     llist.deleteNode(10)  # delete head
     assert llist.getHead().getValue() == 1  # change head to the next node
     assert llist.getHead().getNextNode().getValue() == 3  # node 2 is deleted above
+
+
+def test_delete_node_at_index():
+    llist = LinkedList()
+    # 2 6 7 1 9 1 2 5 3
+    llist.appendToTail(2)
+    llist.appendToTail(6)
+    llist.appendToTail(7)
+    llist.appendToTail(1)
+    llist.appendToTail(9)
+    llist.appendToTail(1)
+    llist.appendToTail(2)
+    llist.appendToTail(5)
+    llist.appendToTail(3)
+
+    assert llist.getSize() == 9
+
+    llist.deleteNodeAt(2)
+    assert llist.getSize() == 8
+
+    llist.deleteNodeAt(2)
+    assert llist.getSize() == 7
+
+    llist.deleteNodeAt(0)
+    assert llist.getSize() == 6
+    assert llist.getHead().getValue() == 6
+    assert llist.getHead().getNextNode().getValue() == 9
+
+
+def test_remove_duplicate():
+    llist = LinkedList()
+    # 2 6 7 1 9 1 2 5 3
+    llist.appendToTail(2)
+    llist.appendToTail(6)
+    llist.appendToTail(7)
+    llist.appendToTail(1)
+    llist.appendToTail(9)
+    llist.appendToTail(1)
+    llist.appendToTail(2)
+    llist.appendToTail(5)
+    llist.appendToTail(3)

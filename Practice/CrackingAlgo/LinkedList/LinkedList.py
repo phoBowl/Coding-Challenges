@@ -57,6 +57,36 @@ class LinkedList:
         self._size -= 1
         return self._head
 
+    def deleteNodeAt(self, index):
+        ''' Delete node at a specific given index '''
+        counter = 0
+        curr = self.getHead()
+
+        if curr == None:
+            return None
+
+        # head is the index to delete
+        if index == 0:
+            self._head = curr.getNextNode()
+            self._size -= 1
+            return self._head
+
+        while(curr.getNextNode() != None):
+            if (counter + 1) == index:
+                if curr.getNextNode().getNextNode() != None:
+                    curr._next = curr._next._next
+                else:
+                    curr.setNextNode(None)
+                    break
+            else:
+                curr = curr.getNextNode()
+            counter += 1
+
+        # updating size
+        self._size -= 1
+
+        return self._head
+
     def printNodes(self):
         curr = self._head
         while(curr != None):
