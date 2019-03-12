@@ -87,6 +87,16 @@ class LinkedList:
 
         return self._head
 
+    def countOccurence(self, value):
+        counter = 0
+        curr = self.getHead()
+
+        while(curr):
+            if(curr.getValue() == value):
+                counter += 1
+            curr = curr.getNextNode()
+        return counter
+
     def printNodes(self):
         curr = self._head
         while(curr != None):

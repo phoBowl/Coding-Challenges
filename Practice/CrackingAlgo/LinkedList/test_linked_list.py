@@ -83,7 +83,8 @@ def test_delete_node_at_index():
     assert llist.getHead().getNextNode().getValue() == 9
 
 
-def test_remove_duplicate():
+def test_remove_duplicate1():
+    ''' using dictionary - if temporary buffer is allowed '''
     llist = LinkedList()
     # 2 6 7 1 9 1 2 5 3
     llist.appendToTail(2)
@@ -95,3 +96,42 @@ def test_remove_duplicate():
     llist.appendToTail(2)
     llist.appendToTail(5)
     llist.appendToTail(3)
+
+    assert llist.countOccurence(2) == 2
+    assert llist.countOccurence(6) == 1
+    assert llist.countOccurence(7) == 1
+    assert llist.countOccurence(1) == 2
+
+    llist = removeDups1(llist)
+    assert llist.getSize() == 7
+    assert llist.countOccurence(2) == 1
+    assert llist.countOccurence(1) == 1
+    assert llist.getHead().getValue() == 2
+    assert llist.getHead().getNextNode().getValue() == 6
+
+
+def test_remove_duplicate2():
+    ''' no buffer allowed '''
+    llist = LinkedList()
+    # 2 6 7 1 9 1 2 5 3
+    llist.appendToTail(2)
+    llist.appendToTail(6)
+    llist.appendToTail(7)
+    llist.appendToTail(1)
+    llist.appendToTail(9)
+    llist.appendToTail(1)
+    llist.appendToTail(2)
+    llist.appendToTail(5)
+    llist.appendToTail(3)
+
+    assert llist.countOccurence(2) == 2
+    assert llist.countOccurence(6) == 1
+    assert llist.countOccurence(7) == 1
+    assert llist.countOccurence(1) == 2
+
+    llist = removeDups2(llist)
+    assert llist.getSize() == 7
+    assert llist.countOccurence(2) == 1
+    assert llist.countOccurence(1) == 1
+    assert llist.getHead().getValue() == 2
+    assert llist.getHead().getNextNode().getValue() == 6

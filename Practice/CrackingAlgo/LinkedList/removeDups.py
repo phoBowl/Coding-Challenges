@@ -12,13 +12,14 @@ from Node import Node
 #     one searches ahead of the first one.
 
 
-def removeDups1(head):
-    ''' Method 1: using dictionary - if temporary buffer is allowed '''
+def removeDups1(llist):
+    ''' Method 1: using dictionary - if temporary buffer is allowed  O(N)'''
     dictionary = dict()
-    curr = head
+    curr = llist.getHead()
 
     if curr == None:
-        return llist._head
+        return llist
+
     prevNode = Node()
     while(curr):
         curr_val = curr.getValue()
@@ -28,10 +29,29 @@ def removeDups1(head):
         else:
             if curr_val in dictionary:
                 prevNode._next = curr.getNextNode()
+                llist._size -= 1
         curr = curr.getNextNode()
-    return llist._head
+    return llist
 
 
 def removeDups2(llist):
-    ''' Method 2: Linked List tranversal -  temporary buffer is not allowed '''
-    pass
+    ''' Method 2: Linked List tranversal -  temporary buffer is not allowed  O(n^2)'''
+    curr = llist.getHead()
+
+    if(curr == None):
+        return llist
+
+    while(curr != None):
+        temp_node = curr
+        while(temp_node.getNextNode() != None):
+            if temp_node.getNextNode().getValue() == curr.getValue():
+                if temp_node.getNextNode().getNextNode() != None:
+                    temp_node._next = temp_node._next._next
+                    llist._size -= 1
+                else:
+                    temp_node._next = None
+                    break
+            temp_node = temp_node.getNextNode()
+        curr = curr.getNextNode()
+
+    return llist
